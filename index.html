@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BEK MEN'S STORE — Andijon shahridagi zamonaviy va klassik erkaklar kiyim-kechak internet-do‘koni. Futbolkalar, ko‘ylaklar, shimlar, jinsilar, kurtkalar, kostyumlar, sport va oyoq kiyimlari hamda aksessuarlar." />
+  <title>BEK MEN'S STORE — Andijon Erkaklar Kiyimlari Internet-Do‘koni</title>
+
+  <!-- Google Fonts: Cormorant Garamond (editorial serif) & Plus Jakarta Sans (clean modern UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons (lightweight vanilla icon set) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <!-- Asosiy CSS fayl -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Sayt yuklanish animatsiyasi (Preloader) -->
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <div class="preloader-brand">BEK MEN'S STORE</div>
+      <div class="preloader-sub">ANDIJON • PREMIUM MENSWEAR</div>
+      <div class="preloader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- Yuqori e'lon lentasi -->
+  <div class="top-announcement">
+    <div class="container announcement-flex">
+      <span>Andijon shahri bo‘ylab tezkor yetkazib berish • O‘zbekiston bo‘ylab jo‘natma</span>
+      <span class="announcement-divider">|</span>
+      <span>Ish vaqti: 09:00 – 21:00 (Har kuni)</span>
+    </div>
+  </div>
+
+  <!-- Asosiy Header / Navigatsiya -->
+  <header id="mainHeader" class="site-header">
+    <div class="container header-inner">
+      <!-- Mobil Hamburger tugmasi -->
+      <button id="hamburgerBtn" class="icon-btn hamburger-btn" aria-label="Menyuni ochish" aria-expanded="false">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <!-- Logotip -->
+      <a href="#bosh-sahifa" class="brand-logo" aria-label="BEK MEN'S STORE bosh sahifa">
+        <span class="logo-main">BEK MEN'S</span>
+        <span class="logo-sub">STORE • ANDIJON</span>
+      </a>
+
+      <!-- Asosiy menyu -->
+      <nav id="navMenu" class="main-nav" aria-label="Asosiy navigatsiya">
+        <ul class="nav-list">
+          <li><a href="#bosh-sahifa" class="nav-link active" data-nav="home">Bosh sahifa</a></li>
+          <li><a href="#katalog" class="nav-link" data-nav="catalog">Katalog</a></li>
+          <li><a href="#katalog" class="nav-link" data-nav="new">Yangi mahsulotlar</a></li>
+          <li><a href="#katalog" class="nav-link" data-nav="sale">Chegirmalar</a></li>
+          <li><a href="#biz-haqimizda" class="nav-link" data-nav="about">Biz haqimizda</a></li>
+          <li><a href="#aloqa" class="nav-link" data-nav="contact">Aloqa</a></li>
+        </ul>
+      </nav>
+
+      <!-- O'ng tarafdagi tezkor tugmalar -->
+      <div class="header-actions">
+        <button id="searchToggleBtn" class="icon-btn" aria-label="Qidiruv" title="Qidiruv">
+          <i data-lucide="search"></i>
+        </button>
+
+        <button id="themeToggleBtn" class="icon-btn" aria-label="Kunduzgi va tungi rejim" title="Kunduzgi / Tungi rejim">
+          <i data-lucide="moon" id="themeIcon"></i>
+        </button>
+
+        <button id="wishlistOpenBtn" class="icon-btn badge-btn" aria-label="Sevimli mahsulotlar" title="Sevimlilar">
+          <i data-lucide="heart"></i>
+          <span id="wishlistCount" class="action-badge">0</span>
+        </button>
+
+        <button id="cartOpenBtn" class="icon-btn badge-btn cart-btn" aria-label="Savatcha" title="Savatcha">
+          <i data-lucide="shopping-bag"></i>
+          <span id="cartCount" class="action-badge">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Ochiladigan Qidiruv Paneli -->
+    <div id="searchBarPanel" class="search-panel">
+      <div class="container search-panel-inner">
+        <i data-lucide="search" class="search-panel-icon"></i>
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Mahsulot nomini kiriting (masalan: kostyum, ko‘ylak, jinsi, kurtka, poyabzal)..."
+          autocomplete="off"
+        />
+        <button id="clearSearchBtn" class="clear-search-btn" type="button" aria-label="Qidiruvni tozalash" hidden>
+          Tozalash
+        </button>
+        <button id="closeSearchBtn" class="icon-btn" type="button" aria-label="Qidiruvni yopish">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobil yon menyu (Drawer) -->
+  <div id="mobileDrawerBackdrop" class="drawer-backdrop"></div>
+  <aside id="mobileDrawer" class="mobile-drawer" aria-label="Mobil menyu">
+    <div class="drawer-header">
+      <div class="brand-logo">
+        <span class="logo-main">BEK MEN'S</span>
+        <span class="logo-sub">STORE • ANDIJON</span>
+      </div>
+      <button id="closeMobileDrawer" class="icon-btn" aria-label="Menyuni yopish">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="#bosh-sahifa" class="mobile-nav-link" data-nav="home">Bosh sahifa</a></li>
+      <li><a href="#katalog" class="mobile-nav-link" data-nav="catalog">Katalog</a></li>
+      <li><a href="#katalog" class="mobile-nav-link" data-nav="new">Yangi mahsulotlar</a></li>
+      <li><a href="#katalog" class="mobile-nav-link" data-nav="sale">Chegirmalar</a></li>
+      <li><a href="#biz-haqimizda" class="mobile-nav-link" data-nav="about">Biz haqimizda</a></li>
+      <li><a href="#aloqa" class="mobile-nav-link" data-nav="contact">Aloqa</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <p><strong>BEK MEN'S STORE</strong></p>
+      <p>Andijon shahri, O‘zbekiston (namunaviy manzil)</p>
+      <p>Ish vaqti: 09:00 – 21:00</p>
+    </div>
+  </aside>
+
+  <!-- ASOSIY SAHIFA -->
+  <main id="bosh-sahifa">
+    <!-- Hero Banner -->
+    <section class="hero-section">
+      <div class="hero-media">
+        <img
+          src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1920&q=85"
+          alt="BEK MEN'S STORE — Zamonaviy erkaklar kiyimlari kolleksiyasi"
+          class="hero-img"
+        />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container hero-content">
+        <span class="hero-kicker">ANDIJON ERKAKLAR MODA UYI • 2026 KOLLEKSIYASI</span>
+        <h1 class="hero-title">USLUBINGIZNI BEK MEN'S STORE BILAN YARATING</h1>
+        <p class="hero-subtitle">Zamonaviy erkaklar uchun sifatli va hamyonbop kiyimlar!</p>
+        <div class="hero-actions">
+          <a href="#katalog" id="heroShopBtn" class="btn btn-gold">
+            <span>Xarid qilish</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
+          <a href="#katalog" id="heroNewBtn" class="btn btn-outline-light">
+            <span>Yangi kolleksiya</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Afzalliklar chizig'i -->
+    <section class="features-strip">
+      <div class="container features-grid">
+        <div class="feature-item">
+          <i data-lucide="award" class="feature-icon"></i>
+          <div>
+            <h3>Tanlangan sifat</h3>
+            <p>Qulay matolar, puxta tikuv va zamonaviy bichim</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <i data-lucide="truck" class="feature-icon"></i>
+          <div>
+            <h3>Andijon va viloyatlarga yetkazish</h3>
+            <p>Tezkor kuryer xizmati va qulay qabul qilish</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <i data-lucide="refresh-cw" class="feature-icon"></i>
+          <div>
+            <h3>O‘lcham mosligi</h3>
+            <p>S, M, L, XL, XXL o‘lchamlarda keng tanlov</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <i data-lucide="shield-check" class="feature-icon"></i>
+          <div>
+            <h3>Hamyonbop narxlar</h3>
+            <p>Muntazam aksiyalar va maxsus chegirmalar</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Katalog bo'limi -->
+    <section id="katalog" class="catalog-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">KATALOG</span>
+            <h2 class="section-title">Erkaklar kiyimlari va aksessuarlar</h2>
+          </div>
+          <div class="catalog-meta">
+            <span id="productsCountLabel" class="products-count">24 ta mahsulot ko‘rsatilmoqda</span>
+          </div>
+        </div>
+
+        <!-- Kategoriya filtrlari -->
+        <div id="categoryTabs" class="category-tabs" role="tablist" aria-label="Mahsulot kategoriyalari">
+          <!-- JS orqali kategoriyalar chiqariladi -->
+        </div>
+
+        <!-- Tezkor holat va Saralash paneli -->
+        <div class="toolbar">
+          <div class="quick-filters">
+            <button type="button" class="chip-btn active" data-filter-mode="all">Barchasi</button>
+            <button type="button" class="chip-btn" data-filter-mode="new">
+              <i data-lucide="sparkles"></i>
+              <span>Yangi mahsulotlar</span>
+            </button>
+            <button type="button" class="chip-btn" data-filter-mode="sale">
+              <i data-lucide="percent"></i>
+              <span>Chegirmadagi mahsulotlar</span>
+            </button>
+            <button type="button" class="chip-btn" data-filter-mode="favorites">
+              <i data-lucide="heart"></i>
+              <span>Sevimlilar</span>
+            </button>
+          </div>
+
+          <div class="sort-box">
+            <label for="sortSelect" class="sort-label">Saralash:</label>
+            <select id="sortSelect" class="sort-select" aria-label="Mahsulotlarni saralash">
+              <option value="default">Tavsiya etilgan</option>
+              <option value="price-asc">Eng arzon mahsulotlar</option>
+              <option value="price-desc">Eng qimmat mahsulotlar</option>
+              <option value="newest">Yangi mahsulotlar</option>
+              <option value="discount">Eng katta chegirma</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Mahsulotlar Grid -->
+        <div id="productsGrid" class="products-grid">
+          <!-- JS orqali mahsulot kartalari chiziladi -->
+        </div>
+
+        <!-- Bo'sh natija holati -->
+        <div id="emptyCatalogState" class="empty-state" hidden>
+          <i data-lucide="search-x" class="empty-icon"></i>
+          <h3>Mos mahsulot topilmadi</h3>
+          <p>Qidiruv so‘zini yoki tanlangan filtrni o‘zgartirib ko‘ring.</p>
+          <button id="resetFiltersBtn" type="button" class="btn btn-dark">Filtrlarni tozalash</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Biz haqimizda bo'limi -->
+    <section id="biz-haqimizda" class="about-section">
+      <div class="container about-grid">
+        <div class="about-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80"
+            alt="BEK MEN'S STORE — Klassik va zamonaviy erkaklar uslubi"
+            class="about-img"
+          />
+          <div class="about-floating-card">
+            <span class="floating-number">24+</span>
+            <span class="floating-text">Tanlangan model har mavsumda</span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <span class="section-eyebrow">BIZ HAQIMIZDA</span>
+          <h2 class="section-title">Andijonda zamonaviy erkaklar garderobi</h2>
+          <p class="about-lead">
+            <strong>BEK MEN'S STORE</strong> — kundalik faol hayot, ishbilarmon uchrashuvlar va maxsus kunlar uchun mo‘ljallangan erkaklar kiyim-kechak va aksessuarlar do‘koni.
+          </p>
+          <p class="about-text">
+            Biz xaridorlarga ortiqcha murakkabliksiz, aniq bichimli, yoqimli matoli va o‘ziga ishonch bag‘ishlaydigan kiyimlarni taklif etamiz. Klassik kostyum va ko‘ylaklardan tortib, qulay futbolka, jinsi, kurtka, sport kiyimlari va poyabzallargacha barchasi bir joyda jamlangan.
+          </p>
+          <ul class="about-highlights">
+            <li><i data-lucide="check"></i> Kundalik va rasmiy uslublarning uyg‘unligi</li>
+            <li><i data-lucide="check"></i> O‘lcham va rang bo‘yicha qulay tanlov</li>
+            <li><i data-lucide="check"></i> Demo buyurtma tizimi orqali tezkor sinov va buyurtma rasmiylashtirish</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Aloqa va Andijon manzili bo'limi -->
+    <section id="aloqa" class="contact-section">
+      <div class="container">
+        <div class="section-header centered-header">
+          <span class="section-eyebrow">ALOQA VA MANZIL</span>
+          <h2 class="section-title">BEK MEN'S STORE — Andijon shahri</h2>
+          <p class="section-subtitle">
+            Quyidagi manzil va aloqa ma’lumotlari namuna sifatida keltirilgan bo‘lib, do‘kon ma’lumotlariga moslab tahrirlanishi mumkin.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-icon-box"><i data-lucide="map-pin"></i></div>
+            <h3>Manzil</h3>
+            <p>Andijon shahri, O‘zbekiston (namunaviy manzil — Bobur shoh ko‘chasi, 45-uy)</p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Andijon+shahri+Ozbekiston"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-link"
+            >
+              <span>Google Maps’da ko‘rish</span>
+              <i data-lucide="external-link"></i>
+            </a>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon-box"><i data-lucide="phone"></i></div>
+            <h3>Telefon (namuna)</h3>
+            <p><a href="tel:+998742000000" class="contact-phone">+998 (74) 200-00-00</a></p>
+            <span class="contact-note">Tahrirlash mumkin bo‘lgan namunaviy raqam</span>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon-box"><i data-lucide="clock"></i></div>
+            <h3>Ish vaqti</h3>
+            <p class="contact-highlight">09:00 – 21:00</p>
+            <span class="contact-note">Dushanba – Yakshanba</span>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon-box"><i data-lucide="share-2"></i></div>
+            <h3>Ijtimoiy tarmoqlar</h3>
+            <p>Yangiliklar va maxsus takliflar sahifalari:</p>
+            <div class="social-links-row">
+              <a
+                href="https://t.me/bek_mens_store_andijon"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-pill"
+              >
+                <i data-lucide="send"></i>
+                <span>Telegram havolasi</span>
+              </a>
+              <a
+                href="https://instagram.com/bek_mens_store_andijon"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-pill"
+              >
+                <i data-lucide="instagram"></i>
+                <span>Instagram havolasi</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand-col">
+        <a href="#bosh-sahifa" class="brand-logo footer-logo">
+          <span class="logo-main">BEK MEN'S</span>
+          <span class="logo-sub">STORE • ANDIJON</span>
+        </a>
+        <p class="footer-desc">
+          Andijon shahridagi erkaklar kiyim-kechak va aksessuarlar internet-do‘koni. Zamonaviy uslub, sifatli mato va qulay xarid.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Bo‘limlar</h4>
+        <ul>
+          <li><a href="#bosh-sahifa">Bosh sahifa</a></li>
+          <li><a href="#katalog">Katalog</a></li>
+          <li><a href="#biz-haqimizda">Biz haqimizda</a></li>
+          <li><a href="#aloqa">Aloqa</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Kategoriyalar</h4>
+        <ul>
+          <li><a href="#katalog" data-quick-cat="Klassik kostyumlar">Klassik kostyumlar</a></li>
+          <li><a href="#katalog" data-quick-cat="Ko‘ylaklar">Ko‘ylaklar</a></li>
+          <li><a href="#katalog" data-quick-cat="Kurtkalar">Kurtkalar</a></li>
+          <li><a href="#katalog" data-quick-cat="Oyoq kiyimlari">Oyoq kiyimlari</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Andijon manzili</h4>
+        <p>Andijon shahri, O‘zbekiston (namuna)</p>
+        <p>Tel: +998 (74) 200-00-00 (namuna)</p>
+        <p>Ish vaqti: 09:00 – 21:00</p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span id="currentYear">2026</span> BEK MEN'S STORE. Barcha huquqlar himoyalangan.</p>
+      <p class="demo-disclaimer">Buyurtmalar demo rejimida ishlaydi; aloqa ma’lumotlari namunaviy ko‘rinishda berilgan.</p>
+    </div>
+  </footer>
+
+  <!-- Sahifaning yuqorisiga qaytish tugmasi -->
+  <button id="scrollTopBtn" class="scroll-top-btn" type="button" aria-label="Sahifaning yuqorisiga qaytish" title="Yuqoriga qaytish">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <!-- MAHSULOT BATAFSIL MODAL OYNASI -->
+  <div id="productModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-dialog product-modal-dialog">
+      <button id="closeProductModal" class="modal-close-btn" type="button" aria-label="Modalni yopish">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="product-modal-body">
+        <div class="product-modal-gallery">
+          <div class="modal-badges" id="modalBadges"></div>
+          <img id="modalImg" src="" alt="" class="modal-product-img" />
+        </div>
+
+        <div class="product-modal-info">
+          <span id="modalCategory" class="modal-category">KATEGORIYA</span>
+          <h2 id="modalTitle" class="modal-title">Mahsulot nomi</h2>
+          <div id="modalRating" class="modal-rating"></div>
+
+          <div class="modal-price-row">
+            <span id="modalPrice" class="modal-current-price">0 so‘m</span>
+            <span id="modalOldPrice" class="modal-old-price"></span>
+            <span id="modalDiscountBadge" class="modal-discount-tag" hidden></span>
+          </div>
+
+          <p id="modalDescription" class="modal-description"></p>
+
+          <!-- O'lcham tanlash -->
+          <div class="option-group">
+            <div class="option-label-row">
+              <span class="option-label">O‘lcham:</span>
+              <span id="selectedSizeText" class="option-selected-value">L</span>
+            </div>
+            <div id="sizeOptions" class="size-selector">
+              <button type="button" class="size-btn" data-size="S">S</button>
+              <button type="button" class="size-btn" data-size="M">M</button>
+              <button type="button" class="size-btn active" data-size="L">L</button>
+              <button type="button" class="size-btn" data-size="XL">XL</button>
+              <button type="button" class="size-btn" data-size="XXL">XXL</button>
+            </div>
+          </div>
+
+          <!-- Rang tanlash -->
+          <div class="option-group">
+            <div class="option-label-row">
+              <span class="option-label">Rang:</span>
+              <span id="selectedColorText" class="option-selected-value">Qora</span>
+            </div>
+            <div id="colorOptions" class="color-selector">
+              <!-- JS orqali rang tugmalari chiqariladi -->
+            </div>
+          </div>
+
+          <!-- Miqdor tanlash -->
+          <div class="option-group">
+            <span class="option-label">Miqdor:</span>
+            <div class="qty-box modal-qty-box">
+              <button type="button" id="modalQtyMinus" class="qty-btn" aria-label="Miqdorni kamaytirish">
+                <i data-lucide="minus"></i>
+              </button>
+              <span id="modalQtyValue" class="qty-value">1</span>
+              <button type="button" id="modalQtyPlus" class="qty-btn" aria-label="Miqdorni oshirish">
+                <i data-lucide="plus"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="modal-actions">
+            <button id="modalAddToCartBtn" type="button" class="btn btn-gold btn-full">
+              <i data-lucide="shopping-bag"></i>
+              <span>Savatga qo‘shish</span>
+            </button>
+            <button id="modalWishlistBtn" type="button" class="btn btn-outline-dark modal-wish-btn" aria-label="Sevimlilarga qo‘shish">
+              <i data-lucide="heart"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAVATCHA YON PANELI (DRAWER) -->
+  <div id="cartDrawerBackdrop" class="drawer-backdrop"></div>
+  <aside id="cartDrawer" class="side-drawer cart-drawer" aria-label="Savatcha">
+    <div class="drawer-header">
+      <div class="drawer-title-group">
+        <h3>Savatcha</h3>
+        <span id="cartDrawerCount" class="drawer-pill">0 dona</span>
+      </div>
+      <button id="closeCartDrawer" class="icon-btn" type="button" aria-label="Savatchani yopish">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+
+    <div id="cartItemsContainer" class="drawer-body">
+      <!-- JS orqali savatcha mahsulotlari chiqariladi -->
+    </div>
+
+    <div id="cartFooter" class="drawer-footer cart-footer">
+      <div class="cart-summary-row">
+        <span>Jami mahsulotlar:</span>
+        <strong id="cartSummaryQty">0 ta</strong>
+      </div>
+      <div class="cart-summary-row total-row">
+        <span>Umumiy summa:</span>
+        <strong id="cartTotalPrice">0 so‘m</strong>
+      </div>
+      <button id="openCheckoutBtn" type="button" class="btn btn-gold btn-full" disabled>
+        <span>Buyurtma berish</span>
+        <i data-lucide="arrow-right"></i>
+      </button>
+      <button id="clearCartBtn" type="button" class="btn-text-danger" hidden>Savatchani tozalash</button>
+    </div>
+  </aside>
+
+  <!-- SEVIMLILAR YON PANELI (DRAWER) -->
+  <div id="wishlistDrawerBackdrop" class="drawer-backdrop"></div>
+  <aside id="wishlistDrawer" class="side-drawer wishlist-drawer" aria-label="Sevimli mahsulotlar">
+    <div class="drawer-header">
+      <div class="drawer-title-group">
+        <h3>Sevimlilar</h3>
+        <span id="wishlistDrawerCount" class="drawer-pill">0 ta</span>
+      </div>
+      <button id="closeWishlistDrawer" class="icon-btn" type="button" aria-label="Sevimlilar panelini yopish">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+
+    <div id="wishlistItemsContainer" class="drawer-body">
+      <!-- JS orqali sevimli mahsulotlar chiqariladi -->
+    </div>
+  </aside>
+
+  <!-- BUYURTMA BERISH MODAL OYNASI (DEMO REJIM) -->
+  <div id="checkoutModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle" hidden>
+    <div class="modal-dialog checkout-modal-dialog">
+      <button id="closeCheckoutModal" class="modal-close-btn" type="button" aria-label="Buyurtma oynasini yopish">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="checkout-header">
+        <span class="section-eyebrow">DEMO BUYURTMA TIZIMI</span>
+        <h2 id="checkoutTitle" class="modal-title">Buyurtmani rasmiylashtirish</h2>
+        <p class="checkout-demo-note">
+          Eslatma: Saytda backend server mavjud emas. Buyurtma demo rejimda mahalliy tarzda qabul qilinadi (haqiqiy serverga yuborilmaydi).
+        </p>
+      </div>
+
+      <form id="checkoutForm" class="checkout-form" novalidate>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="customerName">Ism va familiya *</label>
+            <input type="text" id="customerName" name="customerName" placeholder="Masalan: Sardorbek Karimov" required />
+            <small class="error-msg"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="customerPhone">Telefon raqami *</label>
+            <input type="tel" id="customerPhone" name="customerPhone" placeholder="+998 90 123 45 67" required />
+            <small class="error-msg"></small>
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="customerRegion">Viloyat *</label>
+            <select id="customerRegion" name="customerRegion" required>
+              <option value="Andijon viloyati" selected>Andijon viloyati</option>
+              <option value="Farg‘ona viloyati">Farg‘ona viloyati</option>
+              <option value="Namangan viloyati">Namangan viloyati</option>
+              <option value="Toshkent shahri">Toshkent shahri</option>
+              <option value="Toshkent viloyati">Toshkent viloyati</option>
+              <option value="Samarqand viloyati">Samarqand viloyati</option>
+              <option value="Buxoro viloyati">Buxoro viloyati</option>
+              <option value="Xorazm viloyati">Xorazm viloyati</option>
+              <option value="Qashqadaryo viloyati">Qashqadaryo viloyati</option>
+              <option value="Surxondaryo viloyati">Surxondaryo viloyati</option>
+              <option value="Navoiy viloyati">Navoiy viloyati</option>
+              <option value="Jizzax viloyati">Jizzax viloyati</option>
+              <option value="Sirdaryo viloyati">Sirdaryo viloyati</option>
+              <option value="Qoraqalpog‘iston Respublikasi">Qoraqalpog‘iston Respublikasi</option>
+            </select>
+            <small class="error-msg"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="customerCity">Shahar yoki tuman *</label>
+            <input type="text" id="customerCity" name="customerCity" placeholder="Masalan: Andijon shahri" required />
+            <small class="error-msg"></small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="customerAddress">Yetkazib berish manzili *</label>
+          <input type="text" id="customerAddress" name="customerAddress" placeholder="Ko‘cha nomi, uy yoki mo‘ljal" required />
+          <small class="error-msg"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="customerNote">Izoh (ixtiyoriy)</label>
+          <textarea id="customerNote" name="customerNote" rows="2" placeholder="Yetkazib berish vaqti yoki boshqa izohlar..."></textarea>
+        </div>
+
+        <div class="checkout-summary-box">
+          <div class="checkout-summary-line">
+            <span>Buyurtmadagi mahsulotlar:</span>
+            <strong id="checkoutItemsCount">0 ta</strong>
+          </div>
+          <div class="checkout-summary-line total">
+            <span>To‘lanadigan summa (demo):</span>
+            <strong id="checkoutTotalAmount">0 so‘m</strong>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-full">
+          <i data-lucide="check-circle"></i>
+          <span>Buyurtma berish (Demo)</span>
+        </button>
+      </form>
+
+      <!-- Buyurtma tasdiqlanish ekrani -->
+      <div id="orderConfirmationBox" class="order-confirmation" hidden>
+        <div class="confirm-icon-wrap">
+          <i data-lucide="badge-check"></i>
+        </div>
+        <h3>Demo buyurtma qabul qilindi!</h3>
+        <p class="confirm-sub">
+          Buyurtmangiz demo rejimda ro‘yxatga olindi. (Eslatma: bu namoyish rejimi bo‘lib, ma’lumotlar tashqi serverga yuborilmagan.)
+        </p>
+        <div id="orderReceiptDetails" class="order-receipt"></div>
+        <button id="doneOrderBtn" type="button" class="btn btn-dark btn-full">Xaridni davom ettirish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast bildirishnomalar konteyneri -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Asosiy JavaScript fayl -->
+  <script src="script.js" defer></script>
+</body>
+</html>
